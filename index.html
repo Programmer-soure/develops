@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Latte - Lập trình viên</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      background: linear-gradient(270deg, #667eea, #764ba2, #6a3093, #2980b9);
+      background-size: 800% 800%;
+      animation: gradientShift 20s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      width: 100%;
+      max-width: 460px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .info {
+      text-align: left;
+      margin: 20px 0;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .info p {
+      margin: 8px 0;
+    }
+
+    .info strong {
+      color: #ffd700;
+    }
+
+    .map-button {
+      display: inline-block;
+      margin-left: 10px;
+      background: #fff;
+      color: #333;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 13px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .map-button:hover {
+      background: #ffd700;
+      color: #000;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 5px;
+    }
+
+    .skill-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      text-decoration: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .skill-badge:hover {
+      background: #ffd700;
+      color: #000;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .socials a {
+      text-decoration: none;
+      font-size: 22px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .socials a:hover {
+      transform: scale(1.2);
+    }
+
+    .facebook { background-color: #3b5998; }
+    .github { background-color: #24292e; }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .popup h3 {
+      margin-bottom: 10px;
+    }
+
+    .popup p {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .popup a {
+      color: #000;
+      background: #ffd700;
+      padding: 6px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      margin-right: 10px;
+    }
+
+    .popup button {
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      cursor: pointer;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="avatar" src="logo_4k.png" alt="Latte Avatar" />
+    <h1>Latte</h1>
+    <p class="subtitle">Lập trình viên</p>
+
+    <div class="info">
+      <p><strong>📍 Vị trí:</strong> Thanh Hoá, Việt Nam
+        <a class="map-button" href="https://www.google.com/maps/place/Thanh+Hoá" target="_blank">Xem bản đồ</a>
+      </p>
+      <p><strong>💼 Công việc:</strong> Developer</p>
+      <p><strong>🧠 Kỹ năng:</strong></p>
+      <div class="skills">
+        <button class="skill-badge" onclick="showPopup('HTML', 'Ngôn ngữ đánh dấu được dùng để xây dựng cấu trúc trang web.', 'https://www.w3schools.com/html/')">HTML</button>
+        <button class="skill-badge" onclick="showPopup('CSS', 'Ngôn ngữ định kiểu cho trang web, dùng để tạo giao diện đẹp.', 'https://www.w3schools.com/css/')">CSS</button>
+        <button class="skill-badge" onclick="showPopup('Git', 'Hệ thống quản lý mã nguồn phân tán, rất phổ biến trong lập trình.', 'https://git-scm.com/doc')">Git</button>
+        <button class="skill-badge" onclick="showPopup('Python', 'Ngôn ngữ lập trình đơn giản, mạnh mẽ, phù hợp cho người mới.', 'https://www.python.org/about/')">Python</button>
+        <button class="skill-badge" onclick="showPopup('C++', 'Ngôn ngữ lập trình cấp cao, hiệu suất cao, dùng trong hệ thống và game.', 'https://cplusplus.com/doc/tutorial/')">C++</button>
+      </div>
+      <p><strong>✉️ Email:</strong>
+        <a href="mailto:trungtrung8810@gmail.com" style="color:#fff;text-decoration:underline;">
+          trungtrung8810@gmail.com
+        </a>
+      </p>
+    </div>
+
+    <div class="socials">
+      <a href="https://www.facebook.com/trung.coc.8.8.10" class="facebook" target="_blank" title="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://github.com/Programmer-soure" class="github" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+
+  <div id="popup" class="popup">
+    <button onclick="hidePopup()">×</button>
+    <h3 id="popup-title">Tiêu đề</h3>
+    <p id="popup-desc">Mô tả</p>
+    <a id="popup-link" href="#" target="_blank">Xem chi tiết</a>
+  </div>
+
+  <script>
+    function showPopup(title, desc, link) {
+      document.getElementById('popup-title').textContent = title;
+      document.getElementById('popup-desc').textContent = desc;
+      document.getElementById('popup-link').href = link;
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function hidePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
